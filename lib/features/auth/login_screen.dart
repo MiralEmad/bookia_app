@@ -1,3 +1,4 @@
+import 'package:bookia/features/welcome/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import '../../core/l10n/app_localizations.dart';
 import '../../core/responsive/responsive.dart';
@@ -9,8 +10,8 @@ import '../../core/widgets/auth_scaffold.dart';
 import '../../core/widgets/primary_button.dart';
 import '../../core/widgets/social_button.dart';
 import '../../data/auth_repository.dart';
+import '../pass/forgot_password_screen.dart';
 import 'register_screen.dart';
-import '../welcome/welcome_screen.dart';
 
 /// Screen 3: Login (checks the account stored in Hive).
 class LoginScreen extends StatefulWidget {
@@ -83,13 +84,16 @@ class _LoginScreenState extends State<LoginScreen> {
             Align(
               alignment: AlignmentDirectional.centerEnd,
               child: TextButton(
-                onPressed: () => _snack(context.tr('comingSoon')),
+                onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (_) => const ForgotPasswordScreen())),
                 child: Text(context.tr('forgotPassword'),
                     style: TextStyle(
                         color: AppColors.gray, fontSize: context.sp(12))),
               ),
             ),
-            SizedBox(height: context.sp(10)),
+            SizedBox(height: context.sp(8)),
             PrimaryButton(
               label: context.tr('login'),
               isLoading: _loading,

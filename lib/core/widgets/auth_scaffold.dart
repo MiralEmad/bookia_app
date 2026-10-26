@@ -3,11 +3,17 @@ import '../responsive/responsive.dart';
 import '../theme/app_colors.dart';
 import 'language_button.dart';
 
-/// Shared layout for Login / Register: back button, language switch,
-/// responsive scrolling body.
+/// Shared layout for the auth screens: back button, language switch,
+/// title, optional subtitle and a responsive scrolling body.
 class AuthScaffold extends StatelessWidget {
-  const AuthScaffold({super.key, required this.title, required this.child});
+  const AuthScaffold({
+    super.key,
+    required this.title,
+    required this.child,
+    this.subtitle,
+  });
   final String title;
+  final String? subtitle;
   final Widget child;
 
   @override
@@ -45,6 +51,17 @@ class AuthScaffold extends StatelessWidget {
                 color: AppColors.dark,
               ),
             ),
+            if (subtitle != null) ...[
+              SizedBox(height: context.sp(10)),
+              Text(
+                subtitle!,
+                style: TextStyle(
+                  fontSize: context.sp(13),
+                  height: 1.5,
+                  color: AppColors.gray,
+                ),
+              ),
+            ],
             SizedBox(height: context.sp(28)),
             Expanded(child: child),
           ],
