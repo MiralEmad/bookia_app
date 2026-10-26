@@ -161,3 +161,23 @@ If it is missing, a gradient background is shown instead.
 ## 📝 Notes
 - Google / Apple sign-in buttons and "Forgot Password?" show a "Coming soon" message (UI only).
 - Hashing is suitable for a local demo; use a real backend with salted hashing for production.
+
+---
+
+## 🔑 Password Recovery Flow (added)
+
+| Screen | File | What it does |
+|---|---|---|
+| **Forgot Password?** | `features/auth/forgot_password_screen.dart` | Enter the account email. If it exists in Hive, a 5-digit code is generated. |
+| **OTP Verification** | `features/auth/otp_verification_screen.dart` | 5 code boxes (auto-focus, backspace, paste support), Verify, and Resend. |
+| **Create new password** | `features/auth/create_new_password_screen.dart` | New password + confirm, then updates the user in Hive. |
+| **Password Changed!** | `features/auth/password_changed_screen.dart` | Success screen with a "Back to Login" button. |
+
+Extras for this flow:
+- `core/widgets/otp_field.dart`: reusable OTP input widget.
+- `AuthScaffold` now accepts an optional `subtitle`.
+- `AuthRepository` gained `requestResetCode`, `verifyResetCode` and `resetPassword` (code and verification state live in Hive; the password can only be changed after the code is verified).
+- Login's "Forgot Password?" now opens this flow.
+- All new texts are localized in English and Arabic.
+
+> **Demo note:** there is no email server, so the generated code is shown in a SnackBar ("Demo code: 12345"). Replace `requestResetCode` with a real email/SMS service in production.
