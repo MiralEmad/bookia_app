@@ -9,12 +9,14 @@ class PrimaryButton extends StatelessWidget {
     required this.onPressed,
     this.outlined = false,
     this.isLoading = false,
+    this.backgroundColor,
   });
 
   final String label;
   final VoidCallback? onPressed;
   final bool outlined;
   final bool isLoading;
+  final Color? backgroundColor;
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +55,7 @@ class PrimaryButton extends StatelessWidget {
           : ElevatedButton(
               onPressed: isLoading ? null : onPressed,
               style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.primary,
+                backgroundColor: backgroundColor ?? AppColors.primary,
                 elevation: 0,
                 shape: shape,
               ),

@@ -6,7 +6,7 @@ import '../../core/widgets/auth_scaffold.dart';
 import '../../core/widgets/otp_field.dart';
 import '../../core/widgets/primary_button.dart';
 import '../../data/auth_repository.dart';
-import '../pass/create_new_pass_screen.dart';
+import '../auth/create_new_pass_screen.dart';
 
 /// OTP Verification: 5-digit code check (code is stored in Hive).
 class OtpVerificationScreen extends StatefulWidget {

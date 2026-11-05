@@ -10,7 +10,7 @@ import '../../core/widgets/auth_scaffold.dart';
 import '../../core/widgets/primary_button.dart';
 import '../../core/widgets/social_button.dart';
 import '../../data/auth_repository.dart';
-import '../pass/forgot_password_screen.dart';
+import '../auth/forgot_password_screen.dart';
 import 'register_screen.dart';
 
 /// Screen 3: Login (checks the account stored in Hive).

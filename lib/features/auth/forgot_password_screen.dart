@@ -7,7 +7,7 @@ import '../../core/widgets/auth_bottom_link.dart';
 import '../../core/widgets/auth_scaffold.dart';
 import '../../core/widgets/primary_button.dart';
 import '../../data/auth_repository.dart';
-import '../verification/otp_verification_screen.dart';
+import '../auth/otp_verification_screen.dart';
 
 /// Forgot Password: the user enters the email linked to the account.
 class ForgotPasswordScreen extends StatefulWidget {
