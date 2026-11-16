@@ -9,6 +9,7 @@ class HiveService {
   static const settingsBoxName = 'settings';
   static const wishlistBoxName = 'wishlist';
   static const cartBoxName = 'cart';
+  static const ordersBoxName = 'orders';
   static const langKey = 'lang';
   static const sessionKey = 'session_email';
 
@@ -19,10 +20,12 @@ class HiveService {
     await Hive.openBox(settingsBoxName);
     await Hive.openBox(wishlistBoxName);
     await Hive.openBox(cartBoxName);
+    await Hive.openBox(ordersBoxName);
   }
 
   static Box<UserModel> get users => Hive.box<UserModel>(usersBoxName);
   static Box get settings => Hive.box(settingsBoxName);
   static Box get wishlist => Hive.box(wishlistBoxName);
   static Box get cart => Hive.box(cartBoxName);
+  static Box get orders => Hive.box(ordersBoxName);
 }

@@ -6,8 +6,9 @@ import '../../core/widgets/empty_state.dart';
 import '../../core/widgets/primary_button.dart';
 import '../../data/books_data.dart';
 import '../../data/cart_repository.dart';
+import '../main/place_order_screen.dart';
 
-/// My Cart: items with quantity stepper, total and Checkout (data in Hive).
+
 class CartScreen extends StatelessWidget {
   const CartScreen({super.key});
 
@@ -87,10 +88,11 @@ class CartScreen extends StatelessWidget {
                           SizedBox(height: context.sp(16)),
                           PrimaryButton(
                             label: context.tr('checkout'),
-                            onPressed: () => ScaffoldMessenger.of(context)
-                              ..hideCurrentSnackBar()
-                              ..showSnackBar(SnackBar(
-                                  content: Text(context.tr('comingSoon')))),
+                            onPressed: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => const PlaceOrderScreen()),
+                            ),
                           ),
                         ],
                       ),
